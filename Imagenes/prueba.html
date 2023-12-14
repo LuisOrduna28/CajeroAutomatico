@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de Color con Select</title>
+    <style>
+        body {
+            transition: background-color 0.5s ease; /* Agrega una transición suave */
+        }
+
+        #colores {
+            background-color: rgb(240, 0, 0); /* Color de fondo del select */
+            color: black; /* Color del texto del select */
+            /* Otros estilos opcionales */
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <label for="colores">Selecciona un color de fondo:</label>
+    <select id="colores" name="colores">
+        <option value="rojo">Rojo</option>
+        <option value="verde">Verde</option>
+        <option value="azul">Azul</option>
+    </select>
+
+    <script>
+        // Obtén el elemento select por su id
+        var select = document.getElementById("colores");
+
+        // Agrega un event listener para el evento "change" del select
+        select.addEventListener("change", function() {
+            // Obtén el valor seleccionado en el select
+            var selectedColor = select.value;
+
+            // Cambia el color de fondo del body según la selección
+            document.body.style.backgroundColor = selectedColor;
+        });
+    </script>

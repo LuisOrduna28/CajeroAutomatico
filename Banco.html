@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cajero Automático</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="Body">
+  <script src="./script.js"></script>
+  <header>
+    <div class="navbar">
+      <img src="./Imagenes/Sin título-1.png" height="100">
+    </div>  
+  </header>
+  <main>
+    <div class="contenido">
+      <div id="result">
+        <div id="image-container">
+          <img src="./Imagenes/Mali.gif" alt="GIF" id="colorGif">
+        </div>
+      </div>
+  <div class="Box-cuentas">
+    <div class="Cuentas">
+      <span>Cuentas</span>
+    </div>
+    <div class="input-box"> 
+   <label for="accountSelect" class="label">Usuario:</label>
+   <select id="accountSelect" class="input-field" onchange="changeColorAndGif()">
+     <option value="0">Mali</option>
+     <option value="1">Gera</option>
+     <option value="2">Maui</option>
+   </select>
+    </div>
+    
+    <br><br>
+     <div class="input-box">
+    <label for="passwordInput" class="label">Contraseña:</label>
+    <input type="password" id="passwordInput" class="input-field" required>
+     </div>
+    <br><br>
+     <div class="input-box">
+
+    <input type="submit" class="input-sumit" value="Ingresar" onclick="login()">
+    <div id="output"></div>
+     </div>
+    
+    </div>  
+  </div> 
+</main>
+<script>
+  var select = document.getElementById("accountSelect");
+
+  select.addEventListener("change", function() {
+      var selectedColor = select.value;
+
+      document.body.style.backgroundColor = getColor(selectedColor);
+  });
+  function getColor(color) {
+      switch (color) {
+          case "0":
+              return "#3556d4";
+          case "1":
+              return "#ffcd06";
+          case "2":
+              return "#ad68e4";
+      }
+  }
+</script>
+  
+</body>
+</html>
