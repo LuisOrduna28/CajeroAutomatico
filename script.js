@@ -13,6 +13,7 @@ var cuentas = [
     } else {
       alert("Contraseña incorrecta. Intenta nuevamente.");
     }
+    
   }
 
   function showOptions(accountIndex) {
@@ -32,24 +33,27 @@ var cuentas = [
       case "1":
         alert("Saldo actual: $" + account.saldo);
         break;
-      case "2":
-        var depositAmount = prompt("Ingresa el monto a ingresar:");
-        depositAmount = parseFloat(depositAmount);
+        case "2":
+    var depositAmount = prompt("Ingresa el monto a ingresar:");
+    depositAmount = parseFloat(depositAmount);
 
-        // if (!isNaN(depositAmount) && depositAmount > 0) {
-        //   account.saldo += depositAmount;
-        if (!isNaN(withdrawAmount) && withdrawAmount > 0 && account.saldo - withdrawAmount >=990 && account.saldo - withdrawAmount <=10) {
-          account.saldo -= withdrawAmount;
-          alert("Monto ingresado: $" + depositAmount + "\nNuevo saldo: $" + account.saldo);
+    if (!isNaN(depositAmount) && depositAmount > 0) {
+        // Verifica que el nuevo saldo después del depósito esté dentro del rango permitido
+        if (account.saldo + depositAmount >= 10 && account.saldo + depositAmount <= 990) {
+            account.saldo += depositAmount;
+            alert("Monto ingresado: $" + depositAmount + "\nNuevo saldo: $" + account.saldo);
         } else {
-          alert("Ingresa un monto válido.");
+            alert("El saldo total debe estar entre $10 y $990 después del depósito.");
         }
-        break;
+    } else {
+        alert("Ingresa un monto válido (mayor que 0).");
+    }
+    break;
       case "3":
         var withdrawAmount = prompt("Ingresa el monto a retirar:");
         withdrawAmount = parseFloat(withdrawAmount);
 
-        if (!isNaN(withdrawAmount) && withdrawAmount > 0 && account.saldo - withdrawAmount >=10 && account.saldo - withdrawAmount <=999999999) {
+        if (!isNaN(withdrawAmount) && withdrawAmount > 0 && account.saldo - withdrawAmount >=10 && account.saldo - withdrawAmount <=990) {
           account.saldo -= withdrawAmount;
           alert("Monto retirado: $" + withdrawAmount + "\nNuevo saldo: $" + account.saldo);
         } else {
